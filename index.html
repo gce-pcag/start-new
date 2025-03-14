@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/all.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="all.min.css">
     <title>GCE-Startseite</title>
     <style>
       :root {
@@ -22,7 +22,43 @@
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         transition: background-color 0.3s, color 0.3s;
       }
-      
+      .search-container {
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            justify-content: center;
+        }
+
+        .input-group input[type="text"] {
+            border: 2px solid #3391d7; /* Rahmenfarbe */
+            border-radius: 25px;
+            padding: 15px;
+            width: 400px; /* Breite des Suchfelds */
+            font-size: 18px; /* Schriftgröße */
+        }
+
+        .input-group button {
+            background-color: #3391d7; /* Hintergrundfarbe des Buttons */
+            color: #ffffff; /* Textfarbe des Buttons */
+            border: none;
+            border-radius: 25px;
+            padding: 15px 20px;
+            margin-left: 10px;
+        }
+
+        .input-group button:hover {
+            background-color: #287bb5; /* Dunklere Farbe beim Hover */
+        }
+
+        .category-tabs {
+            margin-top: 20px;
+        }
+
+        .tool-icon {
+            margin-right: 5px; /* Abstand zwischen Icon und Text */
+        }
       body.dark-mode {
         background-image: none;
         background-color: var(--dark);
@@ -40,10 +76,6 @@
         margin-bottom: 1rem;
       }
       
-      .search-container {
-        max-width: 600px;
-        margin: 0 auto 2rem;
-      }
       
       .card {
         border: none;
@@ -221,47 +253,58 @@
     <div class="container">
       <div class="header">
         <img src="assets/gce.png" alt="GCE Logo" class="logo">
-        <!--<h2 class="text-white mb-4">Digitale Lernwerkzeuge</h2>-->
+        <!--<h2 class="text-white mb-4">GCE Bayreuth</h2>-->
       </div>
       
-      <div class="search-container">
-        <div class="input-group">
-          <input type="text" class="form-control" id="searchTools" placeholder="Werkzeuge durchsuchen...">
-          <button class="btn btn-light" type="button">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-      
-      <div class="category-tabs">
+     <div class="search-container">
+        <form action="https://www.duckduckgo.com/" method="get">
+            <div class="input-group">
+                <input type="text" class="form-control" id="searchTools" name="q" placeholder="Durchsuchen..." required>
+                <button class="btn btn-light" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div class="category-tabs">
         <ul class="nav nav-pills justify-content-center" id="toolsTabs" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab">
-              <i class="fas fa-th tool-icon"></i>Alle
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="math-tab" data-bs-toggle="tab" data-bs-target="#math" type="button" role="tab">
-              <i class="fas fa-calculator tool-icon"></i>Mathematik
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="science-tab" data-bs-toggle="tab" data-bs-target="#science" type="button" role="tab">
-              <i class="fas fa-flask tool-icon"></i>Naturwissenschaften
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="coding-tab" data-bs-toggle="tab" data-bs-target="#coding" type="button" role="tab">
-              <i class="fas fa-code tool-icon"></i>Programmieren
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="collaboration-tab" data-bs-toggle="tab" data-bs-target="#collaboration" type="button" role="tab">
-              <i class="fas fa-users tool-icon"></i>Zusammenarbeit
-            </button>
-          </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab">
+                    <i class="fas fa-th tool-icon"></i>Alle
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="math-tab" data-bs-toggle="tab" data-bs-target="#math" type="button" role="tab">
+                    <i class="fas fa-calculator tool-icon"></i>Mathematik
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="science-tab" data-bs-toggle="tab" data-bs-target="#science" type="button" role="tab">
+                    <i class="fas fa-flask tool-icon"></i>Naturwissenschaften
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="coding-tab" data-bs-toggle="tab" data-bs-target="#coding" type="button" role="tab">
+                    <i class="fas fa-code tool-icon"></i>Programmieren
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="collaboration-tab" data-bs-toggle="tab" data-bs-target="#collaboration" type="button" role="tab">
+                    <i class="fas fa-users tool-icon"></i>Zusammenarbeit
+                </button>
+            </li>
         </ul>
-      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      
+
       
       <div class="tab-content" id="toolsTabContent">
         <div class="tab-pane fade show active" id="all" role="tabpanel">
